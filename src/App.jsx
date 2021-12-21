@@ -11,6 +11,12 @@ const sdk = new ThirdwebSDK("rinkeby");
 const bundleDropModule = sdk.getBundleDropModule(
   "0xFC794a27C7c0FCef39812649bc93CdA720FC1D51",
 );
+const tokenModule = sdk.getTokenModule(
+  "0xC604eE52C0481775c48EbdD5163780e75F59B258"
+);
+const voteModule = sdk.getVoteModule(
+  "0xD982d50092BB46B7834c06a04ec73c9769888C9a",
+);
 
 const App = () => {
   // Use the connectWallet hook thirdweb gives us.
@@ -118,12 +124,7 @@ const memberList = useMemo(() => {
       });
   }, [address]);
 
-  const tokenModule = sdk.getTokenModule(
-  "0xC604eE52C0481775c48EbdD5163780e75F59B258"
-);
-const voteModule = sdk.getVoteModule(
-  "0xD982d50092BB46B7834c06a04ec73c9769888C9a",
-);
+
 // Retreive all our existing proposals from the contract.
 useEffect(() => {
   if (!hasClaimedNFT) {
